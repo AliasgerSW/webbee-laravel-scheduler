@@ -1,0 +1,42 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Webbee Scheduler",
+		"_postman_id": "14b32041-0570-f495-70e8-0bc2bde1587a",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get all schedules",
+			"request": {
+				"url": "http://127.0.0.1:8000/schedules/",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Book Seats",
+			"request": {
+				"url": "http://127.0.0.1:8000/book/1/4",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"first_name\":\"First Name\",\n\t\"last_name\":\"Last Name\",\n\t\"email\":\"first.last@gmail.com\",\n\t\"qty\": 2\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
