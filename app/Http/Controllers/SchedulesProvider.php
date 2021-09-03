@@ -29,7 +29,7 @@ class SchedulesProvider extends Controller
                 if ($sch['id'] == $slot['schedule_id']){
 
                     //Ignoring the slots whose time has been past including the "x minutes need to be left before the event starts"
-                    $timeburst = strtotime($slot['slot_time']) - ($schedules[$eKey]['book_before'] * 60 * 1000);
+                    $timeburst = strtotime($slot['slot_time']) - ($schedules[$eKey]['book_before'] * 60);
                     if ($timeburst >= $currentTime){
                         $schedules[$eKey]['slots'][] = $slot;
                     }                    
@@ -77,7 +77,7 @@ class SchedulesProvider extends Controller
         }
 
         $currentTime = time();
-        $timeburst = strtotime($slots->slot_time) - ($schedules->book_before * 60 * 1000);
+        $timeburst = strtotime($slots->slot_time) - ($schedules->book_before * 60);
         //Checking for "x minutes need to be left before the event starts"
         if ($timeburst < $currentTime){
             return response()->json(['success' => false, 'errors' => 'The last time for booking in this slot has been passed'], 422);
